@@ -27,6 +27,10 @@ public class Arbitro {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	
+	
+
 		
 
 }
