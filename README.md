@@ -4,8 +4,6 @@ Trabalho prático da matéria desenvolvimento BackEnd e Engenharia de software I
 ## Objetivo Principal: 
 ## - Gerir um Campeonato de futebol
 
-- gestão das informações sobre o sangue armazenado
-
 - gestão das Equipes cadastradas
 
 - gestão dos Atletas
