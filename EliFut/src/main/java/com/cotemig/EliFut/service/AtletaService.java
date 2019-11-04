@@ -13,5 +13,5 @@ public interface AtletaService {
 	 void deleteAtletaById(Integer id);
 	 void updateAtletaById(Integer id, Atleta atleta);
 	 void insertAtleta(Atleta atleta);
-
+	 
 }

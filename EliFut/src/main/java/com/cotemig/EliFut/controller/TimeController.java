@@ -11,33 +11,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cotemig.EliFut.model.Atleta;
-import com.cotemig.EliFut.service.AtletaService;
-
+import com.cotemig.EliFut.model.Time;
+import com.cotemig.EliFut.service.TimeService;
 
 @Controller
-public class AtletaController {
-
-	@Autowired
-	AtletaService atletaService;
+public class TimeController {
 	
-	@RequestMapping(value = "/inserir/atleta", method = RequestMethod.GET)
-	public ModelAndView insertAtleta(){
+	
+	@Autowired
+	TimeService timeService;
+	
+	@RequestMapping(value = "/inserir/time", method = RequestMethod.GET)
+	public ModelAndView insertTime(){
 		
-		return new ModelAndView("tela-insert-atleta","atleta",new Atleta());
+		return new ModelAndView("tela-insert-time","time",new Time());
 	}
 	
-	@RequestMapping(value = "/inserir/atleta", method = RequestMethod.POST)
-	 public String submitInsert(@Valid @ModelAttribute("atleta")Atleta atleta, 
+	@RequestMapping(value = "/inserir/time", method = RequestMethod.POST)
+	 public String submitInsert(@Valid @ModelAttribute("atleta")Time time, 
 	      BindingResult result, ModelMap model) {
 	        
 	 if (result.hasErrors()) {
 	            return "error";
 	        }
 	        
-	 atletaService.insertAtleta(atleta);
+	 timeService.insertTime(time);
 	        
 	        return "redirect:";
 	 }
 	
+	
+
 }
