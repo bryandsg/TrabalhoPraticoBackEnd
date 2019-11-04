@@ -1,5 +1,8 @@
 package com.cotemig.EliFut.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Jogos {
     private Time visitante;
     private Time local;
@@ -56,7 +59,7 @@ public class Jogos {
         this.andamento = andamento;
     }
 
-    public Jogo(Time visitante, Time local, int golsLocal, int golsVisitante, int vencedor){
+    public void Jogo(Time visitante, Time local, int golsLocal, int golsVisitante, int vencedor){
         this.visitante = visitante;
         this.local = local;
         this.golsLocal = golsLocal;
@@ -64,12 +67,7 @@ public class Jogos {
         this.vencedor = vencedor;
     }
     public void resultado(){
-        int resulVisitante, resulLocal;
-        String jogadas = "";
-
-        for (int jogada = 1; jogada < 20; jogada++){
-            
-        }
+       
     }
 
 
