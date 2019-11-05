@@ -13,7 +13,6 @@ public class Time {
 	private Integer id;
 	private String nomeClube;
 	private Integer fundacao;
-	private Integer pontuacao;
 	
 	public String getNomeClube() {
 		return nomeClube;
@@ -27,12 +26,6 @@ public class Time {
 	public void setFundacao(Integer fundacao) {
 		this.fundacao = fundacao;
 	}
-	public Integer getPontuacao() {
-		return pontuacao;
-	}
-	public void setPontuacao(Integer pontuacao) {
-		this.pontuacao = pontuacao;
-	}
-		
+
 
 }

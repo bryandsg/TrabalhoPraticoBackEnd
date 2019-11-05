@@ -12,7 +12,6 @@ public interface AtletaService {
 	 void deleteAllAtleta();
 	 void deleteAtletaById(Integer id);
 	 void updateAtletaById(Integer id, Atleta atleta);
-	 void updateAtleta(Atleta atleta);
 	 void insertAtleta(Atleta atleta);
-
+	 
 }

@@ -2,10 +2,12 @@ package com.cotemig.EliFut.model;
 
 
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Atleta {
 	
 	@Id
@@ -17,9 +19,7 @@ public class Atleta {
 	public Integer getId() {
 		return id;
 	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getNome() {
 		return nome;
 	}
