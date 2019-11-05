@@ -68,7 +68,7 @@ public class Jogos {
         String jogadas = "";
 
         for (int jogada = 1; jogada < 20; jogada++){
-            
+
         }
     }
 
