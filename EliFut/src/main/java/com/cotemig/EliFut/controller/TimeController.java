@@ -28,7 +28,7 @@ public class TimeController {
 	}
 	
 	@RequestMapping(value = "/inserir/time", method = RequestMethod.POST)
-	 public String submitInsert(@Valid @ModelAttribute("atleta")Time time, 
+	 public String submitInsert(@Valid @ModelAttribute("time")Time time, 
 	      BindingResult result, ModelMap model) {
 	        
 	 if (result.hasErrors()) {
@@ -41,5 +41,4 @@ public class TimeController {
 	 }
 	
 	
-
 }
