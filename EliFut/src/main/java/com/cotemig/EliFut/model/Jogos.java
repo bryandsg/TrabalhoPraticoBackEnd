@@ -56,20 +56,12 @@ public class Jogos {
         this.andamento = andamento;
     }
 
-    public Jogo(Time visitante, Time local, int golsLocal, int golsVisitante, int vencedor){
+    public void Jogo(Time visitante, Time local, int golsLocal, int golsVisitante, int vencedor){
         this.visitante = visitante;
         this.local = local;
         this.golsLocal = golsLocal;
         this.golsVisitante = golsVisitante;
         this.vencedor = vencedor;
-    }
-    public void resultado(){
-        int resulVisitante, resulLocal;
-        String jogadas = "";
-
-        for (int jogada = 1; jogada < 20; jogada++){
-
-        }
     }
 
 
