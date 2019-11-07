@@ -21,6 +21,14 @@
      <th>Alterar?</td>
  </tr>
  
+  <tr th:each="time : ${time}">
+     <td th:text="${time.id}"></td>
+     <td th:text="${time.nomeClube}"></td>
+     <td th:text="${time.fundacao}"></td>
+     <td><a th:href="@{/delete(id=${time.id})}">Deletar</a></td>
+     <td><a th:href="@{/update(id=${time.id})}">Alterar</a></td>
+ </tr>
+ 
 
    
  </tr>

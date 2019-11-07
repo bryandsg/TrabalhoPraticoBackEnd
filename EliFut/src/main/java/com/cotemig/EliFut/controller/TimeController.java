@@ -22,12 +22,13 @@ public class TimeController {
 	TimeService timeService;
 	
 	@RequestMapping(value = "/inserir/time", method = RequestMethod.GET)
-	public ModelAndView insertTime(){
+	public ModelAndView inserirTime(){
 		
-		return new ModelAndView("tela-insert-time","time",new Time());
+		return new ModelAndView("insert-time","time",new Time());
 	}
 	
-	@RequestMapping(value = "/inserir/time", method = RequestMethod.POST)
+		
+	@RequestMapping(value = "/inserir", method = RequestMethod.POST)
 	 public String submitInsert(@Valid @ModelAttribute("time")Time time, 
 	      BindingResult result, ModelMap model) {
 	        
@@ -39,6 +40,65 @@ public class TimeController {
 	        
 	        return "redirect:";
 	 }
+	
+		
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	 public ModelAndView delete(Integer id) {
+	 
+	 return new ModelAndView("delete", "time", timeService.getTimeById(id).get());
+	 }
+	 
+	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	 public String submitDelete(@Valid @ModelAttribute("time")Time time,
+	      BindingResult result, ModelMap model) {
+	        
+	 if (result.hasErrors()) {
+	            return "error";
+	        }
+	 
+	 timeService.deleteTimeById(time.getId());
+	        
+	        return "redirect:";
+	 }
+	 
+	 @RequestMapping(value = "/update", method = RequestMethod.GET)
+	 public ModelAndView update(Integer id) {
+	 
+	        return new ModelAndView("update", "time", timeService.getTimeById(id).get());
+	 }
+	 
+	 @RequestMapping(value = "/update", method = RequestMethod.POST)
+	 public String submitUpdate(@Valid @ModelAttribute("time")Time time,
+	      BindingResult result, ModelMap model) {
+	        
+	 if (result.hasErrors()) {
+	            return "error";
+	        }
+	 
+	 timeService.updateTimeById(time.getId());
+	        
+	        return "redirect:";
+	 }
+	 
+	 @RequestMapping(value = "/read", method = RequestMethod.GET)
+	 public ModelAndView read() {
+	        
+	        ModelAndView mav = new ModelAndView("read");
+	        mav.addObject("time", timeService.getAllTime());
+	        return mav;
+	 }
+	 
+	 @RequestMapping(value = "/", method = RequestMethod.GET)
+	 public ModelAndView index() {
+	        
+	        ModelAndView mav = new ModelAndView("index");
+	        mav.addObject("time", timeService.getAllTime());
+	        return mav;
+	 }
+	
+	
+	
+
 	
 	
 }
