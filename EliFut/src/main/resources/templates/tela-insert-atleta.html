@@ -2,19 +2,33 @@
  <head>
      <title>Inserir</title>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <link rel="stylesheet" type="text/css" href="../css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
  </head>
  <body>
- <form action="/inserir" method="POST" modelAttribute="atleta">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10" align="center" id="teste">
+
+ <form action="/inserir/atleta" method="POST" modelAttribute="atleta">
  
-   Nome Atleta:<br>
-   <input type="text" name="nome"><br>
-   <br>
-   Posição Atleta:<br>
-   <input type="text" name="posicao"><br>
-      <br>
-        
-   <input type="submit" value="Inserir">
+   <div class="form-group">
+   <input type="text" name="nome" placeholder="Digite o nome do atleta">
+   </div>
+   
+   <div class="form-group">
+   <input type="text" name="posicao" placeholder="Digite a posição do atleta">
+   </div>
+   
+    <a href="tela-menu.html" class="btn btn-primary">Voltar</a>
+   <button type="submit" class="btn btn-success">Inserir</button>
+  
+   
  </form>
+ </div>
+ <div class="col-sm-1"></div>
+ </div>
+
  </body>
  
 </html>
