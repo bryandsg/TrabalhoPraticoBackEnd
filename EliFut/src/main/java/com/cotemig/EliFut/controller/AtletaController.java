@@ -40,4 +40,12 @@ public class AtletaController {
 	        return "redirect:";
 	 }
 	
+	@RequestMapping(value = "/menu", method = RequestMethod.GET)
+	public ModelAndView index(){
+		
+		return new ModelAndView("tela-menu");
+	}
+	
+	
+	
 }

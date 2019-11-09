@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cotemig.EliFut.model.Time;
 import com.cotemig.EliFut.repository.TimeRepository;
 
-@Service
+@Service("timeService")
 public class TimeServiceImpl implements TimeService {
 	
 	@Autowired TimeRepository timeRepository;
@@ -53,8 +53,20 @@ public class TimeServiceImpl implements TimeService {
 	@Override
 	public void insertTime(Time time) {
 		// TODO Auto-generated method stub
+		timeRepository.save(time);		
+	}
+
+	@Override
+	public void updateTimeById(Integer id) {
+		// TODO Auto-generated method stub
+        Optional<Time> getTime = this.getTimeById(id);
+        
+        Time time = null;
+        
+        getTime.get().setNomeClube(time.getNomeClube());
+        getTime.get().setFundacao(time.getFundacao());        
+        
 		timeRepository.save(time);
-		
 	}
 
 }
