@@ -44,8 +44,59 @@ public class AtletaController {
 	public ModelAndView index(){
 		
 		return new ModelAndView("tela-menu");
-	}
+	}	
 	
-	
-	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	 public ModelAndView delete(Integer id) {
+	 
+	 return new ModelAndView("delete", "atleta", atletaService.getAtletaById(id).get());
+	 }
+	 
+	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	 public String submitDelete(@Valid @ModelAttribute("atleta")Atleta atleta,
+	      BindingResult result, ModelMap model) {
+	        
+	 if (result.hasErrors()) {
+	            return "error";
+	        }
+	 
+	 atletaService.deleteAtletaById(atleta.getId());
+	        
+	        return "redirect:";
+	 }
+	 
+	 @RequestMapping(value = "/update", method = RequestMethod.GET)
+	 public ModelAndView update(Integer id) {
+	 
+	        return new ModelAndView("update", "atleta", atletaService.getAtletaById(id).get());
+	 }
+	 
+	 @RequestMapping(value = "/update", method = RequestMethod.POST)
+	 public String submitUpdate(@Valid @ModelAttribute("atleta")Atleta atleta,
+	      BindingResult result, ModelMap model) {
+	        
+	 if (result.hasErrors()) {
+	            return "error";
+	        }
+	 
+	 atletaService.updateAtletaById(atleta.getId());
+	        
+	        return "redirect:";
+	 }
+	 
+	 @RequestMapping(value = "/read", method = RequestMethod.GET)
+	 public ModelAndView read() {
+	        
+	        ModelAndView mav = new ModelAndView("read");
+	        mav.addObject("atleta", atletaService.getAllAtleta());
+	        return mav;
+	 }
+	 
+	 @RequestMapping(value = "/", method = RequestMethod.GET)
+	 public ModelAndView index() {
+	        
+	        ModelAndView mav = new ModelAndView("index");
+	        mav.addObject("atleta", atletaService.getAllAtleta());
+	        return mav;
+	 }
 }

@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cotemig.EliFut.model.Time;
-import com.cotemig.EliFut.service.TimeService;
+import com.cotemig.EliFut.model.Jogos;
+import com.cotemig.EliFut.service.JogosService;
 
 @Controller
-public class TimeController {
+public class JogosController {
 	
 	
 	@Autowired
-	TimeService timeService;
+	JogosService jogosService;
 	
-	@RequestMapping(value = "/inserir/time", method = RequestMethod.GET)
-	public ModelAndView inserirTime(){
+	@RequestMapping(value = "/inserir/jogos", method = RequestMethod.GET)
+	public ModelAndView inserirJogos(){
 		
-		return new ModelAndView("insert-time","time",new Time());
+		return new ModelAndView("insert-jogos","jogos",new Jogos());
 	}
 	
 		
 	@RequestMapping(value = "/inserir", method = RequestMethod.POST)
-	 public String submitInsert(@Valid @ModelAttribute("time")Time time, 
+	 public String submitInsert(@Valid @ModelAttribute("jogos")Jogos jogos, 
 	      BindingResult result, ModelMap model) {
 	        
 	 if (result.hasErrors()) {
 	            return "error";
 	        }
 	        
-	 timeService.insertTime(time);
+	 jogosService.insertJogos(jogos);
 	        
 	        return "redirect:";
 	 }
@@ -45,18 +45,18 @@ public class TimeController {
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	 public ModelAndView delete(Integer id) {
 	 
-	 return new ModelAndView("delete", "time", timeService.getTimeById(id).get());
+	 return new ModelAndView("delete", "jogos", jogosService.getJogosById(id).get());
 	 }
 	 
 	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
-	 public String submitDelete(@Valid @ModelAttribute("time")Time time,
+	 public String submitDelete(@Valid @ModelAttribute("jogos")Jogos jogos,
 	      BindingResult result, ModelMap model) {
 	        
 	 if (result.hasErrors()) {
 	            return "error";
 	        }
 	 
-	 timeService.deleteTimeById(time.getId());
+	 jogosService.deleteJogosById(jogos.getId());
 	        
 	        return "redirect:";
 	 }
@@ -64,18 +64,18 @@ public class TimeController {
 	 @RequestMapping(value = "/update", method = RequestMethod.GET)
 	 public ModelAndView update(Integer id) {
 	 
-	        return new ModelAndView("update", "time", timeService.getTimeById(id).get());
+	        return new ModelAndView("update", "jogos", jogosService.getJogosById(id).get());
 	 }
 	 
 	 @RequestMapping(value = "/update", method = RequestMethod.POST)
-	 public String submitUpdate(@Valid @ModelAttribute("time")Time time,
+	 public String submitUpdate(@Valid @ModelAttribute("jogos")Jogos jogos,
 	      BindingResult result, ModelMap model) {
 	        
 	 if (result.hasErrors()) {
 	            return "error";
 	        }
 	 
-	 timeService.updateTimeById(time.getId());
+	 jogosService.updateJogosById(jogos.getId());
 	        
 	        return "redirect:";
 	 }
@@ -84,7 +84,7 @@ public class TimeController {
 	 public ModelAndView read() {
 	        
 	        ModelAndView mav = new ModelAndView("read");
-	        mav.addObject("time", timeService.getAllTime());
+	        mav.addObject("jogos", jogosService.getAllJogos());
 	        return mav;
 	 }
 	 
@@ -92,7 +92,8 @@ public class TimeController {
 	 public ModelAndView index() {
 	        
 	        ModelAndView mav = new ModelAndView("index");
-	        mav.addObject("time", timeService.getAllTime());
+	        mav.addObject("jogos", jogosService.getAllJogos());
 	        return mav;
 	 }
+	
 }
