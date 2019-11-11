@@ -59,14 +59,9 @@ public class TimeServiceImpl implements TimeService {
 	@Override
 	public void updateTimeById(Integer id) {
 		// TODO Auto-generated method stub
-        Optional<Time> getTime = this.getTimeById(id);
-        
-        Time time = null;
-        
-        getTime.get().setNomeClube(time.getNomeClube());
-        getTime.get().setFundacao(time.getFundacao());        
-        
-		timeRepository.save(time);
+		
 	}
+
+
 
 }

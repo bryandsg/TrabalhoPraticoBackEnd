@@ -10,7 +10,7 @@ public interface EstadioService {
 	 Optional<Estadio> getEstadioById(Integer id);
 	 List<Estadio> getAllEstadio();
 	 void deleteAllEstadios();
-	 void deleteEstadiosById(Integer id);
+	 void deleteEstadioById(Integer id);
 	 void updateEstadioById(Integer id, Estadio estadio);
 	 void updateEstadio(Estadio estadio);
 	 void insertEstadio(Estadio estadio);

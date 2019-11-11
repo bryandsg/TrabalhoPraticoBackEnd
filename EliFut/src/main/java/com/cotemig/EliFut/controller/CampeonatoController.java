@@ -84,7 +84,7 @@ public class CampeonatoController {
 	 public ModelAndView read() {
 	        
 	        ModelAndView mav = new ModelAndView("read");
-	        mav.addObject("campeonato", campeonatoService.getAllCampeonato());
+	        mav.addObject("campeonato", campeonatoService.getAllCampeonatos());
 	        return mav;
 	 }
 	 
@@ -92,7 +92,7 @@ public class CampeonatoController {
 	 public ModelAndView index() {
 	        
 	        ModelAndView mav = new ModelAndView("index");
-	        mav.addObject("campeonato", campeonatoService.getAllCampeonato());
+	        mav.addObject("campeonato", campeonatoService.getAllCampeonatos());
 	        return mav;
 	 }
 }

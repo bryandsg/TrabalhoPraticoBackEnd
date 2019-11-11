@@ -34,6 +34,13 @@ public class Estadio {
 	public void setPublico(float publico) {
 		this.publico = publico;
 	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	
 		
 }

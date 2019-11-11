@@ -11,7 +11,7 @@ public interface CampeonatoService {
 	 List<Campeonato> getAllCampeonatos();
 	 void deleteAllCampeonatos();
 	 void deleteCampeonatoById(Integer id);
-	 void updateCampeonatoById(Integer id, Campeonato campeonato);
+	 void updateCampeonatoById(Integer id);
 	 void updateCampeonato(Campeonato campeonato);
 	 void insertCampeonato(Campeonato campeonato);
 

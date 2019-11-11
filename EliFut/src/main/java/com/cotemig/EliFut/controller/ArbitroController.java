@@ -84,7 +84,7 @@ public class ArbitroController {
 	 public ModelAndView read() {
 	        
 	        ModelAndView mav = new ModelAndView("read");
-	        mav.addObject("arbitro", arbitroService.getAllArbitro());
+	        mav.addObject("arbitro", arbitroService.getAllArbitros());
 	        return mav;
 	 }
 	 
@@ -92,7 +92,7 @@ public class ArbitroController {
 	 public ModelAndView index() {
 	        
 	        ModelAndView mav = new ModelAndView("index");
-	        mav.addObject("arbitro", arbitroService.getAllArbitro());
+	        mav.addObject("arbitro", arbitroService.getAllArbitros());
 	        return mav;
 	 }
 }

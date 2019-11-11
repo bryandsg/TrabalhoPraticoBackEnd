@@ -75,7 +75,7 @@ public class EstadioController {
 	            return "error";
 	        }
 	 
-	 estadioService.updateEstadioById(estadio.getId());
+	 estadioService.updateEstadioById(estadio.getId(), estadio);
 	        
 	        return "redirect:";
 	 }
