@@ -28,7 +28,7 @@ public class EstadioController {
 	}
 	
 		
-	@RequestMapping(value = "/inserir", method = RequestMethod.POST)
+	@RequestMapping(value = "/inserir/estadio", method = RequestMethod.POST)
 	 public String submitInsert(@Valid @ModelAttribute("estadio")Estadio estadio, 
 	      BindingResult result, ModelMap model) {
 	        
@@ -42,13 +42,13 @@ public class EstadioController {
 	 }
 	
 		
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/estadio", method = RequestMethod.GET)
 	 public ModelAndView delete(Integer id) {
 	 
 	 return new ModelAndView("delete", "estadio", estadioService.getEstadioById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	 @RequestMapping(value = "/delete/estadio", method = RequestMethod.POST)
 	 public String submitDelete(@Valid @ModelAttribute("estadio")Estadio estadio,
 	      BindingResult result, ModelMap model) {
 	        
@@ -61,13 +61,13 @@ public class EstadioController {
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.GET)
+	 @RequestMapping(value = "/update/estadio", method = RequestMethod.GET)
 	 public ModelAndView update(Integer id) {
 	 
 	        return new ModelAndView("update", "estadio", estadioService.getEstadioById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.POST)
+	 @RequestMapping(value = "/update/estadio", method = RequestMethod.POST)
 	 public String submitUpdate(@Valid @ModelAttribute("estadio")Estadio estadio,
 	      BindingResult result, ModelMap model) {
 	        
@@ -80,7 +80,7 @@ public class EstadioController {
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/read", method = RequestMethod.GET)
+	 @RequestMapping(value = "/read/estadio", method = RequestMethod.GET)
 	 public ModelAndView read() {
 	        
 	        ModelAndView mav = new ModelAndView("read");
@@ -88,7 +88,7 @@ public class EstadioController {
 	        return mav;
 	 }
 	 
-	 @RequestMapping(value = "/", method = RequestMethod.GET)
+	 @RequestMapping(value = "/estadio", method = RequestMethod.GET)
 	 public ModelAndView index() {
 	        
 	        ModelAndView mav = new ModelAndView("index");

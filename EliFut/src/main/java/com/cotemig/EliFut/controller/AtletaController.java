@@ -21,10 +21,16 @@ public class AtletaController {
 	@Autowired
 	AtletaService atletaService;
 	
+	@RequestMapping(value = "/atleta", method = RequestMethod.GET)
+	public ModelAndView Atleta(){
+		
+		return new ModelAndView("Atleta","atleta",new Atleta());
+	}
+	
 	@RequestMapping(value = "/inserir/atleta", method = RequestMethod.GET)
 	public ModelAndView insertAtleta(){
 		
-		return new ModelAndView("tela-insert-atleta","atleta",new Atleta());
+		return new ModelAndView("insertAtleta","atleta",new Atleta());
 	}
 	
 	@RequestMapping(value = "/inserir/atleta", method = RequestMethod.POST)
@@ -39,20 +45,15 @@ public class AtletaController {
 	        
 	        return "redirect:";
 	 }
+
 	
-	@RequestMapping(value = "/menu", method = RequestMethod.GET)
-	public ModelAndView index(){
-		
-		return new ModelAndView("tela-menu");
-	}	
-	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/atleta", method = RequestMethod.GET)
 	 public ModelAndView delete(Integer id) {
 	 
 	 return new ModelAndView("delete", "atleta", atletaService.getAtletaById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	 @RequestMapping(value = "/delete/atleta", method = RequestMethod.POST)
 	 public String submitDelete(@Valid @ModelAttribute("atleta")Atleta atleta,
 	      BindingResult result, ModelMap model) {
 	        
@@ -65,13 +66,13 @@ public class AtletaController {
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.GET)
+	 @RequestMapping(value = "/update/atleta", method = RequestMethod.GET)
 	 public ModelAndView update(Integer id) {
 	 
 	        return new ModelAndView("update", "atleta", atletaService.getAtletaById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.POST)
+	 @RequestMapping(value = "/update/atleta", method = RequestMethod.POST)
 	 public String submitUpdate(@Valid @ModelAttribute("atleta")Atleta atleta,
 	      BindingResult result, ModelMap model) {
 	        
@@ -79,12 +80,12 @@ public class AtletaController {
 	            return "error";
 	        }
 	 
-	 atletaService.updateAtletaById(atleta.getId());
+	  atletaService.updateAtleta(atleta);
 	        
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/read", method = RequestMethod.GET)
+	 @RequestMapping(value = "/read/atleta", method = RequestMethod.GET)
 	 public ModelAndView read() {
 	        
 	        ModelAndView mav = new ModelAndView("read");
@@ -92,11 +93,21 @@ public class AtletaController {
 	        return mav;
 	 }
 	 
-	 @RequestMapping(value = "/", method = RequestMethod.GET)
-	 public ModelAndView index() {
+	 @RequestMapping(value = "/atletas", method = RequestMethod.GET)
+	 public ModelAndView atleta() {
 	        
 	        ModelAndView mav = new ModelAndView("index");
 	        mav.addObject("atleta", atletaService.getAllAtleta());
 	        return mav;
 	 }
+	 
+	 @RequestMapping(value = "/", method = RequestMethod.GET)
+      public ModelAndView index() {
+    	  return new ModelAndView("Index");
+        }
+	 
 }
+     
+		 
+	 
+

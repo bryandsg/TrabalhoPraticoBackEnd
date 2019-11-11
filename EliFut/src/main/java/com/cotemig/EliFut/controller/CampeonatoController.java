@@ -28,7 +28,7 @@ public class CampeonatoController {
 	}
 	
 		
-	@RequestMapping(value = "/inserir", method = RequestMethod.POST)
+	@RequestMapping(value = "/inserir/campeonato", method = RequestMethod.POST)
 	 public String submitInsert(@Valid @ModelAttribute("campeonato")Campeonato campeonato, 
 	      BindingResult result, ModelMap model) {
 	        
@@ -42,13 +42,13 @@ public class CampeonatoController {
 	 }
 	
 		
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/campeonato", method = RequestMethod.GET)
 	 public ModelAndView delete(Integer id) {
 	 
 	 return new ModelAndView("delete", "campeonato", campeonatoService.getCampeonatoById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	 @RequestMapping(value = "/delete/campeonato", method = RequestMethod.POST)
 	 public String submitDelete(@Valid @ModelAttribute("campeonato")Campeonato campeonato,
 	      BindingResult result, ModelMap model) {
 	        
@@ -61,13 +61,13 @@ public class CampeonatoController {
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.GET)
+	 @RequestMapping(value = "/update/campeonato", method = RequestMethod.GET)
 	 public ModelAndView update(Integer id) {
 	 
 	        return new ModelAndView("update", "campeonato", campeonatoService.getCampeonatoById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.POST)
+	 @RequestMapping(value = "/update/campeonato", method = RequestMethod.POST)
 	 public String submitUpdate(@Valid @ModelAttribute("campeonato")Campeonato campeonato,
 	      BindingResult result, ModelMap model) {
 	        
@@ -75,12 +75,12 @@ public class CampeonatoController {
 	            return "error";
 	        }
 	 
-	 campeonatoService.updateCampeonatoById(campeonato.getId());
+	 campeonatoService.updateCampeonatoById(campeonato.getId(), campeonato);
 	        
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/read", method = RequestMethod.GET)
+	 @RequestMapping(value = "/read/campeonato", method = RequestMethod.GET)
 	 public ModelAndView read() {
 	        
 	        ModelAndView mav = new ModelAndView("read");
@@ -88,7 +88,7 @@ public class CampeonatoController {
 	        return mav;
 	 }
 	 
-	 @RequestMapping(value = "/", method = RequestMethod.GET)
+	 @RequestMapping(value = "/campeonato", method = RequestMethod.GET)
 	 public ModelAndView index() {
 	        
 	        ModelAndView mav = new ModelAndView("index");

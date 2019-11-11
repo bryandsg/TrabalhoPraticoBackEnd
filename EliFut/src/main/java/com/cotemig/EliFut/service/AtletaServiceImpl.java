@@ -54,4 +54,10 @@ public class AtletaServiceImpl implements AtletaService {
 		
 	}
 
+	@Override
+	public void updateAtleta(Atleta atleta) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

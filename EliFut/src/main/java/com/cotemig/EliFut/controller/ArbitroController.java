@@ -28,7 +28,7 @@ public class ArbitroController {
 	}
 	
 		
-	@RequestMapping(value = "/inserir", method = RequestMethod.POST)
+	@RequestMapping(value = "/inserir/arbitro", method = RequestMethod.POST)
 	 public String submitInsert(@Valid @ModelAttribute("arbitro")Arbitro arbitro, 
 	      BindingResult result, ModelMap model) {
 	        
@@ -42,13 +42,13 @@ public class ArbitroController {
 	 }
 	
 		
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/arbitro", method = RequestMethod.GET)
 	 public ModelAndView delete(Integer id) {
 	 
 	 return new ModelAndView("delete", "arbitro", arbitroService.getArbitroById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	 @RequestMapping(value = "/delete/arbitro", method = RequestMethod.POST)
 	 public String submitDelete(@Valid @ModelAttribute("arbitro")Arbitro arbitro,
 	      BindingResult result, ModelMap model) {
 	        
@@ -61,13 +61,13 @@ public class ArbitroController {
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.GET)
+	 @RequestMapping(value = "/update/arbitro", method = RequestMethod.GET)
 	 public ModelAndView update(Integer id) {
 	 
 	        return new ModelAndView("update", "arbitro", arbitroService.getArbitroById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/update", method = RequestMethod.POST)
+	 @RequestMapping(value = "/update/arbitro", method = RequestMethod.POST)
 	 public String submitUpdate(@Valid @ModelAttribute("arbitro")Arbitro arbitro,
 	      BindingResult result, ModelMap model) {
 	        
@@ -80,19 +80,19 @@ public class ArbitroController {
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/read", method = RequestMethod.GET)
+	 @RequestMapping(value = "/read/arbitro", method = RequestMethod.GET)
 	 public ModelAndView read() {
 	        
 	        ModelAndView mav = new ModelAndView("read");
-	        mav.addObject("arbitro", arbitroService.getAllArbitros());
+	        mav.addObject("arbitro", arbitroService.getAllArbitro());
 	        return mav;
 	 }
 	 
-	 @RequestMapping(value = "/", method = RequestMethod.GET)
+	 @RequestMapping(value = "/arbitros", method = RequestMethod.GET)
 	 public ModelAndView index() {
 	        
 	        ModelAndView mav = new ModelAndView("index");
-	        mav.addObject("arbitro", arbitroService.getAllArbitros());
+	        mav.addObject("arbitro", arbitroService.getAllArbitro());
 	        return mav;
 	 }
 }

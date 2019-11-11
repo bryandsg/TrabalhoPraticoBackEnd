@@ -12,7 +12,7 @@ public class Campeonato {
     @Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	private String nomeCampeonato;
+	private static String nomeCampeonato;
 	private String tipo;
 	
 	public Integer getId() {
@@ -21,11 +21,11 @@ public class Campeonato {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getNomeCampeonato() {
+	public static String getNomeCampeonato() {
 		return nomeCampeonato;
 	}
 	public void setNomeCampeonato(String nomeCampeonato) {
-		this.nomeCampeonato = nomeCampeonato;
+		Campeonato.nomeCampeonato = nomeCampeonato;
 	}
 	public String getTipo() {
 		return tipo;
