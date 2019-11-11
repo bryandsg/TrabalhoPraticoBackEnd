@@ -21,6 +21,8 @@ public class EstadioController {
 	@Autowired
 	EstadioService estadioService;
 	
+	
+	
 	@RequestMapping(value = "/inserir/estadio", method = RequestMethod.GET)
 	public ModelAndView inserirEstadio(){
 		
@@ -89,11 +91,9 @@ public class EstadioController {
 	 }
 	 
 	 @RequestMapping(value = "/estadio", method = RequestMethod.GET)
-	 public ModelAndView index() {
-	        
-	        ModelAndView mav = new ModelAndView("index");
-	        mav.addObject("estadio", estadioService.getAllEstadio());
-	        return mav;
+	 public String index() {
+		 return  "estadio";
 	 }
+	 
 		
 }
