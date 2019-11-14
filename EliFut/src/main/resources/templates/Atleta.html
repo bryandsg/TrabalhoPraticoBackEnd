@@ -23,7 +23,7 @@
      <td th:text="${atleta.id}"></td>
      <td th:text="${atleta.nome}"></td>
      <td th:text="${atleta.posicao}"></td>
-     <td><a th:href="@{/delete(id=${atleta.id})}">Deletar</a></td>
+     <td><a th:href="@{/atleta/delete(id=${atleta.id})}">Deletar</a></td>
      <td><a th:href="@{/update(id=${atleta.id})}">Alterar</a></td>
  </tr>
  </table>

@@ -50,10 +50,10 @@ public class AtletaController {
 	 //rota correta do insert atleta
 	 
 	 
-	 @RequestMapping(value = "/delete", method = RequestMethod.GET)
+	 @RequestMapping(value = "/atleta/delete", method = RequestMethod.GET)
 	 public ModelAndView delete(Integer id) {
 	 
-	 return new ModelAndView("delete", "Atleta", atletaService.getAtletaById(id).get());
+	 return new ModelAndView("delete", "atleta", atletaService.getAtletaById(id).get());
 	 }
 	 
 	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
