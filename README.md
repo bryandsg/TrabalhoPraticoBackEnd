@@ -22,11 +22,11 @@ Trabalho prático da matéria desenvolvimento BackEnd e Engenharia de software I
 
 - Antes de rodar a aplicação, é necessário configurar onde se desejar salvar o banco de Dados. Basta acessar o caminho "src/main/resources" e abrir o documento "application.properties".
  
-![alt text](https://raw.githubusercontent.com/bryandsg/TrabalhoPraticoBackEnd/master/EliFut/src/main/resources/Caminho1.png)
+![alt text](https://raw.githubusercontent.com/bryandsg/TrabalhoPraticoBackEnd/master/EliFut/src/main/resources/images/Caminho1.png)
 
    - Feito isso basta colocar qual caminho deseja que o banco seja realizado.
   
 
-![alt text](https://raw.githubusercontent.com/bryandsg/TrabalhoPraticoBackEnd/master/EliFut/src/main/resources/Caminho2.png)
+![alt text](https://raw.githubusercontent.com/bryandsg/TrabalhoPraticoBackEnd/master/EliFut/src/main/resources/images/Caminho2.png)
    
 
