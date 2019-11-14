@@ -1,31 +1,127 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>Atletas</title>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- <style>
- table, th, td {
-   border: 1px solid black;
-   border-collapse: collapse;
- }
- </style>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
  </head>
  <body>
- <a href="/inserir/atleta">Inserir novo</a> | <a href="read">Ver todos</a> <br> <br>
- <table style="width:100%">
- <tr>
-     <th>ID</td>
-     <th>Nome</td>
-     <th>E-mail</td>
-     <th>Excluir?</td>
-     <th>Alterar?</td>
- </tr>
- <tr th:each="atleta : ${atletas}">
-     <td th:text="${atleta.id}"></td>
-     <td th:text="${atleta.name}"></td>
-     <td th:text="${atleta.email}"></td>
-     <td><a th:href="@{/delete(id=${atleta.id})}">Deletar</a></td>
-     <td><a th:href="@{/update(id=${atleta.id})}">Alterar</a></td>
- </tr>
- </table>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script>
+      $(function(){
+          //código para exibir os modais
+      });
+    </script>     
+    <!-- Botão para acionar modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Dados do Joagador</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+             <div class="row">
+                <div class="col-md-4">
+                 <p><strong>id</strong></p>
+                 <p>1</p>
+
+                 <p><strong>Clube do Atleta</strong></p>
+                 <p>Clube Atletico Mineiro</p>
+
+                 <p><strong>Posição do Atleta</strong></p>
+                 <p>Meio-Campo</p>
+                </div> 
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main" class="container-fluid">
+            <div id="top" class="row">
+                <div class="col-md-3">
+                    <h2>Informações</h2>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group h2">
+                        <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <a href="insertAtleta.html" class="btn btn-primary pull-right h2">Novo Item</a>
+                <a href="index.html" class="btn btn-primary pull-left h2">Voltar</a>
+            </div>
+        </div> <!-- /#top -->
+     
+         <hr />
+         <div id="list" class="row">
+
+            <div class="table-responsive col-md-12">
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOME</th>
+                                <th>E-MAIL</th>
+                                <th>DATA</th>
+                                <th class="actions">AÇÕES</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+             
+                            <tr>
+                                <td>1</td>
+                                <td>Ronaldinho Gaucho - Bruxo</td>
+                                <td>laureano_duraes@hotmail.com</td>
+                                <td>05-11-2019</td>
+                                <td class="actions">
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" data-target="#modalExemplo" >Visualizar</a>
+                                    <a class="btn btn-warning btn-xs" href="editarAtleta.html">Editar</a>
+                                    <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                </td>
+                            </tr>
+             
+                        </tbody>
+                     </table>
+             </div>
+         </div> <!-- /#list -->
+     
+         <div id="bottom" class="row">
+    
+         <div id="bottom" class="row">
+            <div class="col-md-12">
+                 
+                <ul class="pagination">
+                    <li class="disabled"><a>&lt; Anterior</a></li>
+                    <li class="disabled"><a>1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+                </ul><!-- /.pagination -->
+         
+            </div>
+         </div> <!-- /#bottom -->
  </body>
 </html>
