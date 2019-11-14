@@ -17,3 +17,16 @@ Trabalho prático da matéria desenvolvimento BackEnd e Engenharia de software I
 - gestão da tabela do campeonato
 
 >extra: projeto completamente Acadêmico.
+
+# Para utilização do Projeto
+
+- Antes de rodar a aplicação, é necessário configurar onde se desejar salvar o banco de Dados. Basta acessar o caminho "src/main/resources" e abrir o documento "application.properties".
+ 
+![alt text](https://raw.githubusercontent.com/bryandsg/TrabalhoPraticoBackEnd/master/EliFut/src/main/resources/images/Caminho1.png)
+
+   - Feito isso basta colocar qual caminho deseja que o banco seja realizado.
+  
+
+![alt text](https://raw.githubusercontent.com/bryandsg/TrabalhoPraticoBackEnd/master/EliFut/src/main/resources/images/Caminho2.png)
+   
+

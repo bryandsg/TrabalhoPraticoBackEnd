@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
  </head>
+ <style>
+     #btnver {
+        margin-left: 5px;
+     }
+ </style>
  <body>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -70,8 +75,9 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <a href="insertAtleta.html" class="btn btn-primary pull-right h2">Novo Item</a>
-                <a href="index.html" class="btn btn-primary pull-left h2">Voltar</a>
+                <a href="/read" class="btn btn-primary pull-right h3" id="btnver">Ver Todos</a>
+                <a href="/atleta/insert" class="btn btn-primary pull-right h2">Novo Item</a>
+                <a href="index.html" class="btn btn-primary pull-left h2">Voltar</a>     
             </div>
         </div> <!-- /#top -->
      
@@ -91,15 +97,15 @@
                         </thead>
                         <tbody>
              
-                            <tr>
-                                <td>1</td>
-                                <td>Ronaldinho Gaucho - Bruxo</td>
-                                <td>laureano_duraes@hotmail.com</td>
+                            <tr th:each="atleta : ${atletas}">
+                                <td th:text="${atleta.id}"></td>
+                                <td th:text="${atleta.nome}"></td>
+                                <td th:text="${atleta.posicao}"></td>
                                 <td>05-11-2019</td>
                                 <td class="actions">
                                     <a class="btn btn-success btn-xs" data-toggle="modal" data-target="#modalExemplo" >Visualizar</a>
-                                    <a class="btn btn-warning btn-xs" href="editarAtleta.html">Editar</a>
-                                    <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                    <a class="btn btn-warning btn-xs" th:href="@{/update(id=${atleta.id})}">Editar</a>
+                                    <a class="btn btn-danger btn-xs"  th:href="@{/atleta/delete(id=${atleta.id})}" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                 </td>
                             </tr>
              
@@ -123,5 +129,6 @@
          
             </div>
          </div> <!-- /#bottom -->
+
  </body>
 </html>

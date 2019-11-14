@@ -43,7 +43,7 @@ public class ArbitroServiceImpl implements ArbitroService {
 	public void updateArbitroById(Integer id, Arbitro arbitro) {
 		Optional<Arbitro> getArbitro = this.getArbitroById(id);
 		
-		getArbitro.get().setNome(Arbitro.getNome());
+		getArbitro.get().setNome(arbitro.getNome());
 		
 		arbitroRepository.save(arbitro);
 		
