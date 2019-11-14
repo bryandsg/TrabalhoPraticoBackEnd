@@ -29,4 +29,7 @@ Trabalho prático da matéria desenvolvimento BackEnd e Engenharia de software I
 
 ![alt text](https://raw.githubusercontent.com/bryandsg/TrabalhoPraticoBackEnd/master/EliFut/src/main/resources/images/Caminho2.png)
    
+   # Documentação API 
+   
+   URL : https://documenter.getpostman.com/view/9482715/SW7W5A14
 
