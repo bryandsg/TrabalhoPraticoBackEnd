@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cotemig.EliFut.model.Atleta;
 import com.cotemig.EliFut.service.AtletaService;
+import com.cotemig.EliFut.service.TimeService;
 
 
 @Controller
@@ -20,6 +21,9 @@ public class AtletaController {
 
 	@Autowired
 	 private AtletaService atletaService;
+	
+	@Autowired
+	 private TimeService timeService;
 	 
 	// Correto
 	
@@ -30,7 +34,16 @@ public class AtletaController {
 	 
 	 @RequestMapping(value = "/atleta/insert", method = RequestMethod.GET)
 	 public ModelAndView insertAtleta() {
-	        return new ModelAndView("insertAtleta", "atleta", new Atleta());
+	       
+		 ModelAndView mav = new ModelAndView("insertAtleta");
+		 
+		 mav.addObject("atletas", new Atleta());
+		 mav.addObject("times", timeService.getAllTime());
+		 
+		 return mav; 
+		 
+	        		
+	        		
 	 }
 	 
 	 
@@ -41,7 +54,7 @@ public class AtletaController {
 	 if (result.hasErrors()) {
 	            return "error";
 	        }
-	 
+	 System.out.println(atleta.getTime().getId());
 	 atletaService.insertAtleta(atleta);
 	        
 	        return "redirect:atleta/all";
@@ -98,7 +111,8 @@ public class AtletaController {
 	        return mav;
 	 }
 
-	}
+
+}
 		 
 	 
 
