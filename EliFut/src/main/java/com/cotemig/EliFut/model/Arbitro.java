@@ -11,14 +11,14 @@ public class Arbitro {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	private static String nome;
+	private String nome;
 	
-	public static String getNome() {
+	public  String getNome() {
 		return nome;
 	}
 	
 	public void setNome(String nome) {
-		Arbitro.nome = nome;
+		this.nome = nome;
 	}
 
 	public Integer getId() {

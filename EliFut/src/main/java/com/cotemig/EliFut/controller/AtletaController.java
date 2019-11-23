@@ -13,47 +13,63 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cotemig.EliFut.model.Atleta;
 import com.cotemig.EliFut.service.AtletaService;
+import com.cotemig.EliFut.service.TimeService;
 
 
 @Controller
 public class AtletaController {
 
 	@Autowired
-	AtletaService atletaService;
+	 private AtletaService atletaService;
 	
-	@RequestMapping(value = "/atleta", method = RequestMethod.GET)
-	public ModelAndView Atleta(){
-		
-		return new ModelAndView("Atleta","atleta",new Atleta());
-	}
+	@Autowired
+	 private TimeService timeService;
+	 
+	// Correto
 	
-	@RequestMapping(value = "/inserir/atleta", method = RequestMethod.GET)
-	public ModelAndView insertAtleta(){
-		
-		return new ModelAndView("insertAtleta","atleta",new Atleta());
-	}
-	
-	@RequestMapping(value = "/inserir/atleta", method = RequestMethod.POST)
+	 @RequestMapping(value = "/atleta/all", method = RequestMethod.GET)
+	 public ModelAndView insert() {
+	        return new ModelAndView("Atleta", "atletas", atletaService.getAllAtleta());
+	 }
+	 
+	 @RequestMapping(value = "/atleta/insert", method = RequestMethod.GET)
+	 public ModelAndView insertAtleta() {
+	       
+		 ModelAndView mav = new ModelAndView("insertAtleta");
+		 
+		 mav.addObject("atletas", new Atleta());
+		 mav.addObject("times", timeService.getAllTime());
+		 
+		 return mav; 
+		 
+	        		
+	        		
+	 }
+	 
+	 
+	 @RequestMapping(value = "/atleta", method = RequestMethod.POST)
 	 public String submitInsert(@Valid @ModelAttribute("atleta")Atleta atleta, 
 	      BindingResult result, ModelMap model) {
 	        
 	 if (result.hasErrors()) {
 	            return "error";
 	        }
-	        
+	 System.out.println(atleta.getTime().getId());
 	 atletaService.insertAtleta(atleta);
 	        
-	        return "redirect:";
-	 }
-
-	
-	@RequestMapping(value = "/delete/atleta", method = RequestMethod.GET)
+	        return "redirect:atleta/all";
+	 } 
+	 
+	 //rota correta do insert atleta
+	 
+	 
+	 @RequestMapping(value = "/atleta/delete", method = RequestMethod.GET)
 	 public ModelAndView delete(Integer id) {
 	 
 	 return new ModelAndView("delete", "atleta", atletaService.getAtletaById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/delete/atleta", method = RequestMethod.POST)
+	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
 	 public String submitDelete(@Valid @ModelAttribute("atleta")Atleta atleta,
 	      BindingResult result, ModelMap model) {
 	        
@@ -63,16 +79,18 @@ public class AtletaController {
 	 
 	 atletaService.deleteAtletaById(atleta.getId());
 	        
-	        return "redirect:";
+	        return "redirect:atleta/all";
 	 }
 	 
-	 @RequestMapping(value = "/update/atleta", method = RequestMethod.GET)
+	 //Rota Delete
+	 
+	 @RequestMapping(value = "/update", method = RequestMethod.GET)
 	 public ModelAndView update(Integer id) {
 	 
 	        return new ModelAndView("update", "atleta", atletaService.getAtletaById(id).get());
 	 }
 	 
-	 @RequestMapping(value = "/update/atleta", method = RequestMethod.POST)
+	 @RequestMapping(value = "/update", method = RequestMethod.POST)
 	 public String submitUpdate(@Valid @ModelAttribute("atleta")Atleta atleta,
 	      BindingResult result, ModelMap model) {
 	        
@@ -80,34 +98,21 @@ public class AtletaController {
 	            return "error";
 	        }
 	 
-	  atletaService.updateAtleta(atleta);
+	 atletaService.updateAtleta(atleta);
 	        
 	        return "redirect:";
 	 }
 	 
-	 @RequestMapping(value = "/read/atleta", method = RequestMethod.GET)
+	 @RequestMapping(value = "/read", method = RequestMethod.GET)
 	 public ModelAndView read() {
 	        
-	        ModelAndView mav = new ModelAndView("read");
+	        ModelAndView mav = new ModelAndView("Atleta");
 	        mav.addObject("atleta", atletaService.getAllAtleta());
 	        return mav;
 	 }
-	 
-	 @RequestMapping(value = "/atletas", method = RequestMethod.GET)
-	 public ModelAndView atleta() {
-	        
-	        ModelAndView mav = new ModelAndView("index");
-	        mav.addObject("atleta", atletaService.getAllAtleta());
-	        return mav;
-	 }
-	 
-	 @RequestMapping(value = "/", method = RequestMethod.GET)
-      public ModelAndView index() {
-    	  return new ModelAndView("Index");
-        }
-	 
+
+
 }
-     
 		 
 	 
 
