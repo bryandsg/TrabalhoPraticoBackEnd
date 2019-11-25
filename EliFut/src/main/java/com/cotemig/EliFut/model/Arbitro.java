@@ -28,8 +28,4 @@ public class Arbitro {
 		this.id = id;
 	}
 
-	
-
-		
-
 }
