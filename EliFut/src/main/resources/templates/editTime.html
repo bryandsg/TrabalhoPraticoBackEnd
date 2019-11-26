@@ -1,0 +1,42 @@
+<html>
+ <head>
+     <title>Atualizar Time</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <link rel="stylesheet" type="text/css" href="../css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ </head>
+   <style>
+  </style>
+ <body>
+
+<div id="main" class="container-fluid">
+    <h3 class="page-header">Editar Time</h3>
+    <form action="/editTime" method="POST" modelAttribute="edit">
+      <div class="row">
+            <div class="form-group col-md-1">
+             <label >ID</label>
+             <input type="text" placeholder="" class="form-control"name="id" th:value="">
+            </div>
+       
+           <div class="form-group col-md-3">
+             <label >Nome do Time</label>
+              <input type="text" placeholder="" class="form-control" name="nome" th:value="">
+           </div>  
+
+            <div class="form-group col-md-3">
+               <label >Fundação</label>
+               <input type="text" placeholder="" class="form-control" name="fundacao" th:value="">
+            </div>
+
+      </div>
+      <div id="actions" class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-info" value="Atualizar">Atualizar</button>
+              <a href="/time/all" class="btn btn-default">Cancelar</a>
+            </div>
+      </div>  
+    </form>
+</div>
+
+ </body>
+</html>

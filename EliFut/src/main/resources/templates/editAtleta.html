@@ -1,0 +1,49 @@
+<html>
+ <head>
+     <title>Atualizar Atleta</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <link rel="stylesheet" type="text/css" href="../css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ </head>
+  
+ <body>
+
+</script>
+<div id="main" class="container-fluid">
+    <h3 class="page-header">Editar Atleta</h3>
+    <form action="/editAtleta" method="POST" modelAttribute="atleta">
+      <div class="row">
+            <div class="form-group col-md-1">
+             <label >ID</label>
+             <input type="text" placeholder="" class="form-control"name="id" th:value="">
+            </div>
+       
+           <div class="form-group col-md-3">
+             <label >Nome do jogador</label>
+              <input type="text" placeholder="" class="form-control" name="nome" th:value="">
+           </div>  
+
+            <div class="form-group col-md-3">
+               <label >Clube</label>
+               <input type="text" placeholder="" class="form-control" name="clube" th:value="">
+            </div>
+
+            <div class="form-group col-md-3">
+                 <label >Posição</label>
+                 <input type="text" placeholder="" class="form-control" name="posocao" th:value="">
+            </div>
+   
+    
+      </div>
+       <div id="actions" class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-info" value="Deletar">Atualizar</button>
+              <a href="/time/all" class="btn btn-default">Cancelar</a>
+            </div>
+        </div>       
+    </form>
+</div>
+
+ </body>
+</html>
